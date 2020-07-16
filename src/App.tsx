@@ -14,23 +14,21 @@ export default function App() {
   const classes = useStyles();
 
   return (
-    <CssBaseline>
-      <div className="App">
-        <Container maxWidth="lg">
-          <h1>Github Jobs Search</h1>
-        </Container>
-        <Container maxWidth="lg">
-          <Grid container>
-            <Grid item sm={3}>
-              <SearchPanel></SearchPanel>
-            </Grid>
-            <Grid item sm={9}>
-              <ResultsPanel></ResultsPanel>
-            </Grid>
+    <div className="App">
+      <Container maxWidth="lg">
+        <h1>Github Jobs Search</h1>
+      </Container>
+      <Container maxWidth="lg">
+        <Grid container>
+          <Grid item sm={3}>
+            <SearchPanel></SearchPanel>
           </Grid>
-        </Container>
-      </div>  
-    </CssBaseline>
+          <Grid item sm={9}>
+            <ResultsPanel></ResultsPanel>
+          </Grid>
+        </Grid>
+      </Container>
+    </div>  
   );
 }
 
