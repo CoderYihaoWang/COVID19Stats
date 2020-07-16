@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Grid, makeStyles, createStyles, Theme } from '@material-ui/core';
+import { Container, Grid, makeStyles, createStyles, Theme, CssBaseline } from '@material-ui/core';
 import SearchPanel from './Components/SearchPanel';
 import ResultsPanel from './Components/ResultsPanel';
 import './App.css';
@@ -14,21 +14,23 @@ export default function App() {
   const classes = useStyles();
 
   return (
-    <div className="App">
-      <Container maxWidth="lg">
-        <h1>Github Jobs Search</h1>
-      </Container>
-      <Container maxWidth="lg">
-        <Grid container>
-          <Grid item xs={3}>
-            <SearchPanel></SearchPanel>
+    <CssBaseline>
+      <div className="App">
+        <Container maxWidth="lg">
+          <h1>Github Jobs Search</h1>
+        </Container>
+        <Container maxWidth="lg">
+          <Grid container>
+            <Grid item sm={3}>
+              <SearchPanel></SearchPanel>
+            </Grid>
+            <Grid item sm={9}>
+              <ResultsPanel></ResultsPanel>
+            </Grid>
           </Grid>
-          <Grid item xs={9}>
-            <ResultsPanel></ResultsPanel>
-          </Grid>
-        </Grid>
-      </Container>
-    </div>
+        </Container>
+      </div>  
+    </CssBaseline>
   );
 }
 
