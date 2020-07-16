@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, Switch, FormControlLabel, Button } from '@material-ui/core';
+import { TextField, Switch, FormControlLabel, Button, Grid } from '@material-ui/core';
 import { IUserInput } from '../Common/Interfaces';
 
 interface IProps {
@@ -28,34 +28,44 @@ function SearchPanel(props: IProps) {
 
     return (
         <div className='SearchPanel'>
-            <FormControlLabel 
-                control={
-                    <Switch 
-                        checked={fullTime} 
-                        onChange={handleFulltime} 
-                        name='fullTime'
+            <Grid container spacing={3}> 
+                <Grid item>
+                    <FormControlLabel 
+                        control={
+                            <Switch 
+                                checked={fullTime} 
+                                onChange={handleFulltime} 
+                                name='fullTime'
+                            />
+                        }
+                        label='Only show full-time jobs'
                     />
-                }
-                label='Only show full-time jobs'
-            />
-            <TextField
-                id='search'
-                label='Description'
-                helperText='The job description to search for (eg. Python)'
-                onChange={e => setSearch(e.target.value)}
-            />
-            <TextField
-                id='location'
-                label='Location'
-                helperText='The location of the location (eg. Auckland)'
-                onChange={e => setLocation(e.target.value)}
-            />
-            <Button 
-                variant='outlined'
-                onClick={handleSubmit}
-            >
-                Search
-            </Button>
+                </Grid>
+                <Grid item>
+                  <TextField
+                    id='search'
+                    label='Description'
+                    helperText='The job description to search for (eg. Python)'
+                    onChange={e => setSearch(e.target.value)}
+                />  
+                </Grid>
+                <Grid item>
+                   <TextField
+                    id='location'
+                    label='Location'
+                    helperText='The location of the location (eg. Auckland)'
+                    onChange={e => setLocation(e.target.value)}
+                /> 
+                </Grid>
+                <Grid item>
+                    <Button 
+                    variant='outlined'
+                    onClick={handleSubmit}
+                >
+                    Search
+                </Button>
+                </Grid>
+            </Grid>
         </div>
     )
 }
