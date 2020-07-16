@@ -1,5 +1,5 @@
 import React from 'react'
-import ResultsList from '../ResultsList/ResultsList'
+import ResultsList from './ResultsList'
 
 function ResultsPanel() {
     return <div>

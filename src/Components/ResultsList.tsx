@@ -1,5 +1,5 @@
 import React from 'react';
-import ResultItem from '../ResultItem/ResultItem'
+import ResultItem from './ResultItem'
 
 function ResultsList() {
     return <ul>
