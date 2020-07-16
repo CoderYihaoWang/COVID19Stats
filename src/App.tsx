@@ -1,17 +1,17 @@
-import React from 'react';
-import { Container, Grid, makeStyles, createStyles, Theme, CssBaseline } from '@material-ui/core';
+import React, { useState } from 'react';
+import { Container, Grid } from '@material-ui/core';
 import SearchPanel from './Components/SearchPanel';
 import ResultsPanel from './Components/ResultsPanel';
+import { IUserInput } from './Common/Interfaces';
 import './App.css';
 
-const useStyles = makeStyles({
-  root: {
-    backgroundColor: 'blue'
-  }
-});
-
 export default function App() {
-  const classes = useStyles();
+
+  const [userInput, setUserInput] = useState<IUserInput>({
+    search: null,
+    location: null,
+    fullTime: false
+  });
 
   return (
     <div className="App">
@@ -21,10 +21,10 @@ export default function App() {
       <Container maxWidth="lg">
         <Grid container>
           <Grid item sm={3}>
-            <SearchPanel></SearchPanel>
+            <SearchPanel setUserInput={setUserInput}></SearchPanel>
           </Grid>
           <Grid item sm={9}>
-            <ResultsPanel></ResultsPanel>
+            <ResultsPanel search={userInput.search} location={userInput.location} fullTime={userInput.fullTime}></ResultsPanel>
           </Grid>
         </Grid>
       </Container>

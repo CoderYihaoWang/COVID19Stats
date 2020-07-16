@@ -1,7 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { IResult } from '../Common/Interfaces';
 
-function ResultItem() {
+type IProps = IResult;
+
+function ResultItem(props: IProps) {
     return <p>This is a placeholder for a result item</p>
 }
 
-export default ResultItem
+export default ResultItem;

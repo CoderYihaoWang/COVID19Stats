@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ResultItem from './ResultItem'
 
-function ResultsList() {
-    return <ul>
-        <li><ResultItem/></li>
-        <li><ResultItem/></li>
-        <li><ResultItem/></li>
-    </ul>
+interface IProps {
+    page: number | null,
+    search: string | null,
+    location: string | null,
+    fullTime: boolean
+}
+
+function ResultsList(props: IProps) {
+
+
+    return <p>Placeholder for results list</p>
 }
 
 export default ResultsList
