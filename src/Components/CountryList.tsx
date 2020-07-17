@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { List, ListItem, ListItemText, Drawer, Hidden } from '@material-ui/core';
+import { List, Drawer, createStyles, Theme, makeStyles } from '@material-ui/core';
 import CountryItem from './CountryItem';
 import { ICountryData } from '../Common/Interfaces';
 
@@ -7,8 +7,19 @@ interface IProps {
     setCountry: (country: string) => void
 }
 
+const useStyles = makeStyles((theme: Theme) => 
+    createStyles({
+        root: {
+            flexShrink: 0,
+            width: '33vw'
+        }
+    })
+);
+
 export default function CountryList(props: IProps) {
     const [countriesData, setCountriesData] = useState<ICountryData[]>([]);
+
+    const classes = useStyles();
 
     useEffect(() => {
         fetch('https://api.covid19api.com/summary')
@@ -42,14 +53,13 @@ export default function CountryList(props: IProps) {
     )
 
     return (
-        <nav>
-          <Drawer
-            variant="permanent"
-            anchor="left"
-            open
-          >
-            {drawer}
-          </Drawer>
-      </nav>
+        <Drawer
+        className={classes.root}
+        variant="permanent"
+        anchor="left"
+        open
+        >
+        {drawer}
+        </Drawer>
     )
 }

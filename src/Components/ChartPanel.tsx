@@ -2,10 +2,19 @@ import React, { useState, useEffect } from 'react';
 import DateBar from './DateBar';
 import Chart from './Chart';
 import OptionsBar from './OptionsBar';
+import { createStyles, makeStyles, Theme } from '@material-ui/core';
 
 interface IProps {
     country: string
 }
+
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        root: {
+            flexGrow: 1,
+        }
+    })
+);
 
 export default function ChartPanel(props: IProps) {
     const [startDate, setStartDate] = useState<Date>(
@@ -19,8 +28,10 @@ export default function ChartPanel(props: IProps) {
     const [displayRecovered, setDisplayRecovered] = useState<boolean>(false);
     const [displayActive, setDisplayActive] = useState<boolean>(true);
 
+    const classes = useStyles();
+
     return (
-        <div>
+        <div className={classes.root}>
             <DateBar 
                 startDate={startDate}
                 setStartDate={setStartDate}
