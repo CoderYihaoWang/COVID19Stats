@@ -20,28 +20,28 @@ export default function OptionsBar(props: IProps) {
                     checked={props.displayConfirmed}
                     onChange={(e) => props.setDisplayConfirmed(e.target.checked)}
                 />}
-                label='Show confirmed cases'
-            />
-            <FormControlLabel 
-                control={<Switch 
-                    checked={props.displayRecovered}
-                    onChange={(e) => props.setDisplayRecovered(e.target.checked)}
-                />}
-                label='Show Recovered cases'
+                label='Confirmed'
             />
             <FormControlLabel 
                 control={<Switch 
                     checked={props.displayActive}
                     onChange={(e) => props.setDisplayActive(e.target.checked)}
                 />}
-                label='Show active cases'
+                label='Active'
+            />
+            <FormControlLabel 
+                control={<Switch 
+                    checked={props.displayRecovered}
+                    onChange={(e) => props.setDisplayRecovered(e.target.checked)}
+                />}
+                label='Recovered'
             />
             <FormControlLabel 
                 control={<Switch 
                     checked={props.displayDeaths}
                     onChange={(e) => props.setDisplayDeaths(e.target.checked)}
                 />}
-                label='Show deaths'
+                label='Deaths'
             />
         </FormGroup>
     )
