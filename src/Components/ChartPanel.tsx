@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function ChartPanel(props: IProps) {
     const [startDate, setStartDate] = useState<Date>(
-        new Date(2019, 1, 1)
+        new Date(2020, 1, 1)
     );
     const [endDate, setEndDate] = useState<Date>(
         new Date()
