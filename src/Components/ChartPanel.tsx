@@ -15,8 +15,8 @@ export default function ChartPanel(props: IProps) {
         new Date()
     );
     const [displayConfirmed, setDisplayConfirmed] = useState<boolean>(true);
-    const [displayDeaths, setDisplayDeaths] = useState<boolean>(true);
-    const [displayRecovered, setDisplayRecovered] = useState<boolean>(true);
+    const [displayDeaths, setDisplayDeaths] = useState<boolean>(false);
+    const [displayRecovered, setDisplayRecovered] = useState<boolean>(false);
     const [displayActive, setDisplayActive] = useState<boolean>(true);
 
     return (
@@ -37,9 +37,13 @@ export default function ChartPanel(props: IProps) {
                 displayActive={displayActive}
             />
             <OptionsBar 
+                displayConfirmed={displayConfirmed}
                 setDisplayConfirmed={setDisplayConfirmed}
+                displayDeaths={displayDeaths}
                 setDisplayDeaths={setDisplayDeaths}
+                displayRecovered={displayRecovered}
                 setDisplayRecovered={setDisplayRecovered}
+                displayActive={displayActive}
                 setDisplayActive={setDisplayActive}
             />
         </div>
