@@ -31,15 +31,47 @@ export default function Chart(props: IProps) {
             .catch(() => console.log('An error has occured in fetching data for chart'))
     }, [props.country, props.startDate, props.endDate]);
 
+    const lines = [
+        {
+            dataKey: "Confirmed",
+            color: "blue",
+            display: props.displayConfirmed
+        },
+        {
+            dataKey: "Deaths",
+            color: "blue",
+            display: props.displayDeaths
+        },
+        {
+            dataKey: "Recovered",
+            color: "blue",
+            display: props.displayRecovered
+        },
+        {
+            dataKey: "Active",
+            color: "blue",
+            display: props.displayActive
+        }
+    ]
     return (   
         <div>
             <p>{props.country}</p>
             <LineChart width={600} height={300} data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
         <Tooltip />
-        <Line type="monotone" dataKey="Confirmed" stroke="#8884d8" />
-        <Line type="monotone" dataKey="Deaths" stroke="#8884d8" />
-        <Line type="monotone" dataKey="Recovered" stroke="#8884d8" />
-        <Line type="monotone" dataKey="Active" stroke="#8884d8" />
+        {
+            lines.map(line => line.display 
+                ? <Line 
+                    type="monotone"
+                    dataKey={line.dataKey}
+                    stroke={line.color}
+                    dot={false}
+                    activeDot={{stroke: line.color, strokeWidth: 1, r: 4}}
+                    strokeWidth={3}
+                    legendType="line"
+                />
+                : <div />
+            )
+        }
         {/* <CartesianGrid stroke="#ccc" strokeDasharray="5 5" /> */}
         <XAxis dataKey="date" />
         <YAxis />
