@@ -7,6 +7,17 @@ interface IProps {
     setCountry: (country: string) => void
 }
 
+interface IResponseCountryData {
+    Country: string,
+    Slug: string,
+    TotalConfirmed: number,
+    NewConfirmed: number,
+    TotalDeaths: number,
+    NewDeaths: number,
+    TotalRecovered: number,
+    NewRecovered: number
+}
+
 export default function CountryList(props: IProps) {
     const [countriesData, setCountriesData] = useState<ICountryData[]>([]);
     const [globalData, setGlobalData] = useState<ICountryData | null>(null);
@@ -18,24 +29,24 @@ export default function CountryList(props: IProps) {
                 setGlobalData({
                     country: 'Global',
                     slug: 'Global',
-                    totalConfirmed: data.Global.totalConfirmed,
-                    newConfirmed: data.Global.newConfirmed,
-                    totalDeaths: data.Global.totalDeaths,
-                    newDeaths: data.Global.newDeaths,
-                    totalRecovered: data.Global.totalRecovered,
-                    newRecovered: data.Global.newRecovered
+                    totalConfirmed: data.Global.TotalConfirmed,
+                    newConfirmed: data.Global.NewConfirmed,
+                    totalDeaths: data.Global.TotalDeaths,
+                    newDeaths: data.Global.NewDeaths,
+                    totalRecovered: data.Global.TotalRecovered,
+                    newRecovered: data.Global.NewRecovered
                 });
                 setCountriesData(
-                    data.Countries.map((country: ICountryData) => {
+                    data.Countries.map((country: IResponseCountryData) => {
                         return {
-                            country: country.country,
-                            slug: country.slug,
-                            totalConfirmed: country.totalConfirmed,
-                            newConfirmed: country.newConfirmed,
-                            totalDeaths: country.totalDeaths,
-                            newDeaths: country.newDeaths,
-                            totalRecovered: country.totalRecovered,
-                            newRecovered: country.newRecovered
+                            country: country.Country,
+                            slug: country.Slug,
+                            totalConfirmed: country.TotalConfirmed,
+                            newConfirmed: country.NewConfirmed,
+                            totalDeaths: country.TotalDeaths,
+                            newDeaths: country.NewDeaths,
+                            totalRecovered: country.TotalRecovered,
+                            newRecovered: country.NewRecovered
                         }
                     })
                 )
@@ -44,7 +55,6 @@ export default function CountryList(props: IProps) {
                 console.log(`Error in fetching summary data`);
             })
     },[]);
-
 
     return (
         <List>
