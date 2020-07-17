@@ -5,18 +5,12 @@ import ChartPanel from './Components/ChartPanel';
 import './App.css';
 
 function App() {
-  const [country, setCountry] = useState<string>("");
+  const [country, setCountry] = useState<string>("new-zealand");
 
   return (
     <div className="App">
-      <Grid container>
-        <Grid item>
-          <CountryList setCountry={setCountry} />
-        </Grid>
-        <Grid item>
-          <ChartPanel country={country} />
-        </Grid>
-      </Grid>
+      <CountryList setCountry={setCountry}/>
+      <ChartPanel country={country} />
     </div>
   );
 }

@@ -37,31 +37,19 @@ export default function CountryList(props: IProps) {
 
     const drawer = (
         <List>
-            {countriesData.map(data => (
-                <ListItem button>
-                    <ListItemText>
-                      <CountryItem {...data}/>  
-                    </ListItemText>
-                </ListItem>
-            ))}
+            {countriesData.map(data => <CountryItem setCountry={props.setCountry} data={data}/>)}
         </List>
     )
 
     return (
         <nav>
-        <Hidden smUp implementation="css">
-          <Drawer>
-            {drawer}
-          </Drawer>
-        </Hidden>
-        <Hidden xsDown implementation="css">
           <Drawer
             variant="permanent"
+            anchor="left"
             open
           >
             {drawer}
           </Drawer>
-        </Hidden>
       </nav>
     )
 }

@@ -13,6 +13,6 @@ interface IProps {
 export default function Chart(props: IProps) {
 
     return (
-        <p>placeholder for char</p>
+    <p>placeholder for chart: {props.country}</p>
     )
 }
