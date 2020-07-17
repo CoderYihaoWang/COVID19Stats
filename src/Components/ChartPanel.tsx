@@ -22,7 +22,9 @@ export default function ChartPanel(props: IProps) {
     return (
         <div>
             <DateBar 
+                startDate={startDate}
                 setStartDate={setStartDate}
+                endDate={endDate}
                 setEndDate={setEndDate}
             />
             <Chart 
