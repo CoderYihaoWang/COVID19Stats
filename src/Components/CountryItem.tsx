@@ -1,14 +1,7 @@
 import React, { useEffect } from 'react';
+import { ICountryData } from '../Common/Interfaces';
 
-interface IProps {
-    country: string,
-    totalConfirmed: number,
-    newConfirmed: number,
-    totalDeaths: number,
-    newDeaths: number,
-    totalRecovered: number,
-    newRecovered: number
-};
+type IProps = ICountryData;
 
 export default function CountryItem(props: IProps) {
 
@@ -17,6 +10,6 @@ export default function CountryItem(props: IProps) {
     }, []);
 
     return (
-    <p>{props.country}: {props.totalConfirmed}</p>
+    <p>{props.Country}: {props.TotalConfirmed}</p>
     )
 }
