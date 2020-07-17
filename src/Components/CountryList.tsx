@@ -10,7 +10,6 @@ interface IProps {
 const useStyles = makeStyles((theme: Theme) => 
     createStyles({
         root: {
-            flexShrink: 0,
             width: '33vw'
         }
     })
