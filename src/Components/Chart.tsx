@@ -57,26 +57,24 @@ export default function Chart(props: IProps) {
         <div>
             <p>{props.country}</p>
             <LineChart width={600} height={300} data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
-        <Tooltip />
-        {
-            lines.map(line => line.display 
-                ? <Line 
-                    type="monotone"
-                    dataKey={line.dataKey}
-                    stroke={line.color}
-                    dot={false}
-                    activeDot={{stroke: line.color, strokeWidth: 1, r: 4}}
-                    strokeWidth={3}
-                    legendType="line"
-                />
-                : <div />
-            )
-        }
-        {/* <CartesianGrid stroke="#ccc" strokeDasharray="5 5" /> */}
-        <XAxis dataKey="date" />
-        <YAxis />
-  </LineChart>
-        </div>
-    
+                <Tooltip />
+                {
+                    lines.map(line => line.display 
+                        ? <Line 
+                            type="monotone"
+                            dataKey={line.dataKey}
+                            stroke={line.color}
+                            dot={false}
+                            activeDot={{stroke: line.color, strokeWidth: 1, r: 4}}
+                            strokeWidth={3}
+                            legendType="line"
+                        />
+                        : <div />
+                    )
+                }
+                <XAxis dataKey="date" />
+                <YAxis />
+        </LineChart>
+    </div>
     )
 }

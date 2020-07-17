@@ -45,12 +45,6 @@ export default function CountryList(props: IProps) {
             })
     },[]);
 
-    const drawer = (
-        <List>
-            {countriesData.map(data => <CountryItem setCountry={props.setCountry} data={data}/>)}
-        </List>
-    )
-
     return (
         <Drawer
         className={classes.root}
@@ -58,7 +52,9 @@ export default function CountryList(props: IProps) {
         anchor="left"
         open
         >
-        {drawer}
+            <List>
+        {countriesData.map(data => <CountryItem setCountry={props.setCountry} data={data}/>)}
+        </List>
         </Drawer>
     )
 }
