@@ -18,7 +18,8 @@ export default function DateBar(props: IProps) {
       };
 
     const handleEndDateChange = (date : Date | null) => {
-        props.setEndDate(date ?? new Date());
+        const defaultDate = new Date(new Date().getTime() - 24 * 60 * 60 * 1000);
+        props.setEndDate((date === null || +date > +defaultDate) ? defaultDate : date);
     }
 
     return (

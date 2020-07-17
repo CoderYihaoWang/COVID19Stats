@@ -21,7 +21,7 @@ export default function ChartPanel(props: IProps) {
         new Date(2020, 1, 1)
     );
     const [endDate, setEndDate] = useState<Date>(
-        new Date()
+        new Date(new Date().getTime() - 24 * 60 * 60 * 1000)
     );
     const [displayConfirmed, setDisplayConfirmed] = useState<boolean>(true);
     const [displayDeaths, setDisplayDeaths] = useState<boolean>(false);
