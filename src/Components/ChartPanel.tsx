@@ -11,7 +11,7 @@ interface IProps {
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        text: {
+        title: {
           textAlign: 'center'  
         }
     })
@@ -33,11 +33,8 @@ export default function ChartPanel(props: IProps) {
 
     return (
         <Container>
-            <Typography variant="h3" className={classes.text}>
-                COVID-19 Trend
-            </Typography>
-            <Typography variant="h4" className={classes.text}>
-                {props.country}
+            <Typography variant="h3" className={classes.title}>
+                COVID-19 Trend for {props.country}
             </Typography>
             <DateBar 
                 startDate={startDate}
