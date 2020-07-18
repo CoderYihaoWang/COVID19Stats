@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import DateBar from './DateBar';
 import Chart from './Chart';
 import OptionsBar from './OptionsBar';
-import { createStyles, makeStyles, Theme, Typography, Grid, Container } from '@material-ui/core';
+import { createStyles, makeStyles, Theme, Typography, Grid, Container, Color } from '@material-ui/core';
+import { purple } from '@material-ui/core/colors';
+import { IColors } from '../Common/Interfaces';
 
 interface IProps {
     country: string,
-    slug: string
+    slug: string,
+    colors: IColors
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -50,6 +53,7 @@ export default function ChartPanel(props: IProps) {
                 displayDeaths={displayDeaths}
                 displayRecovered={displayRecovered}
                 displayActive={displayActive}
+                colors={props.colors}
             />
             <OptionsBar 
                 displayConfirmed={displayConfirmed}
@@ -60,6 +64,7 @@ export default function ChartPanel(props: IProps) {
                 setDisplayRecovered={setDisplayRecovered}
                 displayActive={displayActive}
                 setDisplayActive={setDisplayActive}
+                colors={props.colors}
             />
         </Container>
     )

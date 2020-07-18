@@ -5,6 +5,8 @@ import ChartPanel from './Components/ChartPanel';
 import './App.css';
 import { findByLabelText } from '@testing-library/react';
 import classes from '*.module.css';
+import { red, green, orange, grey } from '@material-ui/core/colors';
+import { IColors } from './Common/Interfaces';
 
 const useStyle = makeStyles((theme: Theme) => 
   createStyles({
@@ -18,10 +20,17 @@ function App() {
   const [country, setCountry] = useState<string>("New Zealand");
   const [slug, setSlug] = useState<string>("new-zealand");
   const classes = useStyle();
+  const colors: IColors = {
+    Confirmed: red,
+    Recovered: green,
+    Active: orange,
+    Deaths: grey
+  }
+
   return (
     <div className={classes.root}>
-      <CountryList setCountry={setCountry} setSlug={setSlug}/>
-      <ChartPanel country={country} slug={slug}/>
+      <CountryList setCountry={setCountry} setSlug={setSlug} colors={colors}/>
+      <ChartPanel country={country} slug={slug} colors={colors}/>
     </div>
   );
 }

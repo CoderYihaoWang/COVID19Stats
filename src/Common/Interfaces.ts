@@ -1,3 +1,5 @@
+import { Color } from "@material-ui/core";
+
 export interface ICountryData {
     Country: string,
     Slug: string,
@@ -7,4 +9,11 @@ export interface ICountryData {
     NewDeaths: number,
     TotalRecovered: number,
     NewRecovered: number
+}
+
+export interface IColors {
+    Confirmed: Color,
+    Recovered: Color,
+    Active: Color,
+    Deaths: Color
 }

@@ -1,5 +1,8 @@
 import React from 'react';
-import { FormControlLabel, FormGroup, Switch, Grid } from '@material-ui/core';
+import { FormControlLabel, FormGroup, Switch, Grid, withStyles } from '@material-ui/core';
+import { purple } from '@material-ui/core/colors';
+import { IColors } from '../Common/Interfaces';
+import { datePickerDefaultProps } from '@material-ui/pickers/constants/prop-types';
 
 interface IProps {
     displayConfirmed: boolean,
@@ -9,25 +12,64 @@ interface IProps {
     displayRecovered: boolean,
     setDisplayRecovered: (b: boolean) => void,
     displayActive: boolean,
-    setDisplayActive: (b: boolean) => void
+    setDisplayActive: (b: boolean) => void,
+    colors: IColors
 };
 
+const PurpleSwitch = withStyles({
+    switchBase: {
+      color: purple[300],
+      '&$checked': {
+        color: purple[500],
+      },
+      '&$checked + $track': {
+        backgroundColor: purple[500],
+      },
+    },
+    checked: {},
+    track: {},
+  })(Switch);
+
+
+
 export default function OptionsBar(props: IProps) {
+
+    const MakeColoredSwitch = (name: "Confirmed" | "Recovered" | "Active" | "Deaths") => 
+    withStyles({
+        switchBase: {
+            color: props.colors[name][300],
+            '&$checked': {
+            color: props.colors[name][500],
+            },
+            '&$checked + $track': {
+            backgroundColor: props.colors[name][500],
+            },
+        },
+        checked: {},
+        track: {},
+    })(Switch);
+
+    const ConfirmedSwitch = MakeColoredSwitch("Confirmed");
+    const RecoveredSwitch = MakeColoredSwitch("Recovered");
+    const ActiveSwitch = MakeColoredSwitch("Active");
+    const DeathsSwitch = MakeColoredSwitch("Deaths");
+
     return (
         <Grid container justify="space-evenly">
         <FormGroup row>
             <Grid item>
             <FormControlLabel 
-                control={<Switch 
+                control={<ConfirmedSwitch 
                     checked={props.displayConfirmed}
                     onChange={(e) => props.setDisplayConfirmed(e.target.checked)}
                 />}
                 label='Confirmed'
+                color="secondary"
             />
             </Grid>
             <Grid item>
             <FormControlLabel 
-                control={<Switch 
+                control={<ActiveSwitch 
                     checked={props.displayActive}
                     onChange={(e) => props.setDisplayActive(e.target.checked)}
                 />}
@@ -36,7 +78,7 @@ export default function OptionsBar(props: IProps) {
             </Grid>
             <Grid item>
             <FormControlLabel 
-                control={<Switch 
+                control={<RecoveredSwitch 
                     checked={props.displayRecovered}
                     onChange={(e) => props.setDisplayRecovered(e.target.checked)}
                 />}
@@ -45,7 +87,7 @@ export default function OptionsBar(props: IProps) {
             </Grid>
             <Grid item>
             <FormControlLabel 
-                control={<Switch 
+                control={<DeathsSwitch 
                     checked={props.displayDeaths}
                     onChange={(e) => props.setDisplayDeaths(e.target.checked)}
                 />}

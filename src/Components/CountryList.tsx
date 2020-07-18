@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { List, Drawer, createStyles, Theme, makeStyles } from '@material-ui/core';
 import CountryItem from './CountryItem';
-import { ICountryData } from '../Common/Interfaces';
+import { ICountryData, IColors } from '../Common/Interfaces';
 
 interface IProps {
     setCountry: (country: string) => void,
     setSlug: (slug: string) => void
+    colors: IColors
 }
 
 const useStyles = makeStyles((theme: Theme) => 
@@ -57,7 +58,7 @@ export default function CountryList(props: IProps) {
             <List className={classes.drawer}>
             {
                 countriesData.map(data => 
-                    <CountryItem setCountry={props.setCountry} setSlug={props.setSlug} data={data}/>
+                    <CountryItem setCountry={props.setCountry} setSlug={props.setSlug} data={data} colors={props.colors}/>
                 )
             }
         </List>

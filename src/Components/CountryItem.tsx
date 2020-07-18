@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { ListItem, ListItemText, Tooltip, Accordion, AccordionSummary, AccordionDetails, Button, Typography, List } from '@material-ui/core';
-import { ICountryData } from '../Common/Interfaces';
+import { ICountryData, IColors } from '../Common/Interfaces';
 
 interface IProps {
     data: ICountryData,
     setCountry: (country: string) => void,
-    setSlug: (slug: string) => void
+    setSlug: (slug: string) => void,
+    colors: IColors
 }
 
 export default function CountryItem(props: IProps) {
