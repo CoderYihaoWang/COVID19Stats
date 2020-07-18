@@ -11,7 +11,7 @@ interface IProps {
 const useStyles = makeStyles((theme: Theme) => 
     createStyles({
         drawer: {
-           width: '30vw',
+           width: '20vw',
            overflowX: 'hidden'
         }
     })
