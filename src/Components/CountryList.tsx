@@ -55,9 +55,11 @@ export default function CountryList(props: IProps) {
         open
         >
             <List className={classes.drawer}>
-        {countriesData.map(data => 
-            <CountryItem setCountry={props.setCountry} setSlug={props.setSlug} data={data}/>
-        )}
+            {
+                countriesData.map(data => 
+                    <CountryItem setCountry={props.setCountry} setSlug={props.setSlug} data={data}/>
+                )
+            }
         </List>
         </Drawer>
     )

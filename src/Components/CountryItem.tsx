@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ListItem, ListItemText, Tooltip, Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
+import { ListItem, ListItemText, Tooltip, Accordion, AccordionSummary, AccordionDetails, Button, Typography, List } from '@material-ui/core';
 import { ICountryData } from '../Common/Interfaces';
 
 interface IProps {
@@ -10,13 +10,52 @@ interface IProps {
 
 export default function CountryItem(props: IProps) {
     return (
-        <ListItem button onClick={() => {
-            props.setSlug(props.data.Slug);
-            props.setCountry(props.data.Country);
-        }}>
-            <ListItemText>
-                <p>{props.data.Country}: {props.data.TotalConfirmed}</p>  
-            </ListItemText>
-        </ListItem>
+        <Accordion>
+            <AccordionSummary>
+                <Typography>{props.data.Country}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+                <List>
+                    <ListItem>
+                        <Typography variant="body1">
+                            Totol confirmed: {props.data.TotalConfirmed}
+                        </Typography>
+                    </ListItem>
+                    <ListItem>
+                        <Typography variant="body1">
+                            New confirmed: {props.data.NewConfirmed}
+                        </Typography>
+                    </ListItem>
+                    <ListItem>
+                        <Typography variant="body1">
+                            Totol recovered: {props.data.TotalRecovered}
+                        </Typography>
+                    </ListItem>
+                    <ListItem>
+                        <Typography variant="body1">
+                            New recovered: {props.data.NewRecovered}
+                        </Typography>
+                    </ListItem>
+                    <ListItem>
+                        <Typography variant="body1">
+                            Totol deaths: {props.data.TotalDeaths}
+                        </Typography>
+                    </ListItem>
+                    <ListItem>
+                        <Typography variant="body1">
+                            New deaths: {props.data.NewDeaths}
+                        </Typography>
+                    </ListItem>
+                    <ListItem>
+                        <Button onClick={() => {
+                            props.setSlug(props.data.Slug);
+                            props.setCountry(props.data.Country);
+                        }}>
+                            Show
+                </Button>
+                    </ListItem>
+                </List>
+            </AccordionDetails>
+        </Accordion>
     )
 }
