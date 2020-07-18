@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import DateBar from './DateBar';
 import Chart from './Chart';
 import OptionsBar from './OptionsBar';
-import { createStyles, makeStyles, Theme, Typography } from '@material-ui/core';
+import { createStyles, makeStyles, Theme, Typography, Grid, Container } from '@material-ui/core';
 
 interface IProps {
     country: string,
@@ -11,11 +11,9 @@ interface IProps {
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        // root: {
-        //     flexGrow: 1,
-        //     width: '67vw',
-        //     marginLeft: '33vw'
-        // }
+        text: {
+          textAlign: 'center'  
+        }
     })
 );
 
@@ -34,11 +32,11 @@ export default function ChartPanel(props: IProps) {
     const classes = useStyles();
 
     return (
-        <div>
-            <Typography variant="h3">
+        <Container>
+            <Typography variant="h3" className={classes.text}>
                 COVID-19 Trend
             </Typography>
-            <Typography variant="h4">
+            <Typography variant="h4" className={classes.text}>
                 {props.country}
             </Typography>
             <DateBar 
@@ -66,6 +64,6 @@ export default function ChartPanel(props: IProps) {
                 displayActive={displayActive}
                 setDisplayActive={setDisplayActive}
             />
-        </div>
+        </Container>
     )
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormControlLabel, FormGroup, Switch } from '@material-ui/core';
+import { FormControlLabel, FormGroup, Switch, Grid } from '@material-ui/core';
 
 interface IProps {
     displayConfirmed: boolean,
@@ -14,7 +14,9 @@ interface IProps {
 
 export default function OptionsBar(props: IProps) {
     return (
+        <Grid container justify="space-evenly">
         <FormGroup row>
+            <Grid item>
             <FormControlLabel 
                 control={<Switch 
                     checked={props.displayConfirmed}
@@ -22,6 +24,8 @@ export default function OptionsBar(props: IProps) {
                 />}
                 label='Confirmed'
             />
+            </Grid>
+            <Grid item>
             <FormControlLabel 
                 control={<Switch 
                     checked={props.displayActive}
@@ -29,6 +33,8 @@ export default function OptionsBar(props: IProps) {
                 />}
                 label='Active'
             />
+            </Grid>
+            <Grid item>
             <FormControlLabel 
                 control={<Switch 
                     checked={props.displayRecovered}
@@ -36,6 +42,8 @@ export default function OptionsBar(props: IProps) {
                 />}
                 label='Recovered'
             />
+            </Grid>
+            <Grid item>
             <FormControlLabel 
                 control={<Switch 
                     checked={props.displayDeaths}
@@ -43,6 +51,8 @@ export default function OptionsBar(props: IProps) {
                 />}
                 label='Deaths'
             />
+            </Grid>
         </FormGroup>
+        </Grid>
     )
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import {} from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
@@ -23,35 +23,39 @@ export default function DateBar(props: IProps) {
     }
 
     return (
-        <div>
+        <Grid container justify="space-evenly">
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                <Grid item>
             <KeyboardDatePicker
                 disableToolbar
                 variant="inline"
                 format="MM/dd/yyyy"
                 margin="normal"
                 id="start-date-picker"
-                label="Start date"
+                label="From"
                 value={props.startDate}
                 onChange={handleStartDateChange}
                 KeyboardButtonProps={{
                     'aria-label': 'change date',
                 }}
             />
+            </Grid>
+            <Grid item>
             <KeyboardDatePicker
                 disableToolbar
                 variant="inline"
                 format="MM/dd/yyyy"
                 margin="normal"
                 id="end-date-picker"
-                label="End date"
+                label="To"
                 value={props.endDate}
                 onChange={handleEndDateChange}
                 KeyboardButtonProps={{
                     'aria-label': 'change date',
                 }}
             />
+            </Grid>
             </MuiPickersUtilsProvider>
-        </div>
+        </Grid>
     )
 }
