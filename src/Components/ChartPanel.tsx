@@ -11,9 +11,11 @@ interface IProps {
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        root: {
-            //flexGrow: 1,
-        }
+        // root: {
+        //     flexGrow: 1,
+        //     width: '67vw',
+        //     marginLeft: '33vw'
+        // }
     })
 );
 
@@ -32,7 +34,7 @@ export default function ChartPanel(props: IProps) {
     const classes = useStyles();
 
     return (
-        <div className={classes.root}>
+        <div>
             <Typography variant="h3">
                 COVID-19 Trend
             </Typography>

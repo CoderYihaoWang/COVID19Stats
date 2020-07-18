@@ -10,8 +10,9 @@ interface IProps {
 
 const useStyles = makeStyles((theme: Theme) => 
     createStyles({
-        root: {
-            width: '33vw'
+        drawer: {
+           width: '30vw',
+           overflowX: 'hidden'
         }
     })
 );
@@ -48,12 +49,12 @@ export default function CountryList(props: IProps) {
 
     return (
         <Drawer
-        className={classes.root}
+        className={classes.drawer}
         variant="permanent"
         anchor="left"
         open
         >
-            <List>
+            <List className={classes.drawer}>
         {countriesData.map(data => 
             <CountryItem setCountry={props.setCountry} setSlug={props.setSlug} data={data}/>
         )}
