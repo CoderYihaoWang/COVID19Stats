@@ -47,14 +47,15 @@ export default function CountryItem(props: IProps) {
                         </Typography>
                     </ListItem>
                     <ListItem>
-                        <Button onClick={() => {
+                       <Button onClick={() => {
                             props.setSlug(props.data.Slug);
                             props.setCountry(props.data.Country);
                         }}>
-                            Show
-                </Button>
+                            Show graph
+                        </Button> 
                     </ListItem>
                 </List>
+                 
             </AccordionDetails>
         </Accordion>
     )
