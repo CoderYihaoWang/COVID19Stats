@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import DateBar from './DateBar';
 import Chart from './Chart';
 import OptionsBar from './OptionsBar';
-import { createStyles, makeStyles, Theme } from '@material-ui/core';
+import { createStyles, makeStyles, Theme, Typography } from '@material-ui/core';
 
 interface IProps {
-    country: string
+    country: string,
+    slug: string
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -32,6 +33,12 @@ export default function ChartPanel(props: IProps) {
 
     return (
         <div className={classes.root}>
+            <Typography variant="h3">
+                COVID-19 Trend
+            </Typography>
+            <Typography variant="h4">
+                {props.country}
+            </Typography>
             <DateBar 
                 startDate={startDate}
                 setStartDate={setStartDate}
@@ -39,7 +46,7 @@ export default function ChartPanel(props: IProps) {
                 setEndDate={setEndDate}
             />
             <Chart 
-                country={props.country}
+                country={props.slug}
                 startDate={startDate}
                 endDate={endDate}
                 displayConfirmed={displayConfirmed}

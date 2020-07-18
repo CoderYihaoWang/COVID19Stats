@@ -15,12 +15,13 @@ const useStyle = makeStyles((theme: Theme) =>
 )
 
 function App() {
-  const [country, setCountry] = useState<string>("new-zealand");
+  const [country, setCountry] = useState<string>("New Zealand");
+  const [slug, setSlug] = useState<string>("new-zealand");
   const classes = useStyle();
   return (
     <div className={classes.root}>
-      <CountryList setCountry={setCountry}/>
-      <ChartPanel country={country}/>
+      <CountryList setCountry={setCountry} setSlug={setSlug}/>
+      <ChartPanel country={country} slug={slug}/>
     </div>
   );
 }

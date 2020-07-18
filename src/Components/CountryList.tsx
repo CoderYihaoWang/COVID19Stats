@@ -4,7 +4,8 @@ import CountryItem from './CountryItem';
 import { ICountryData } from '../Common/Interfaces';
 
 interface IProps {
-    setCountry: (country: string) => void
+    setCountry: (country: string) => void,
+    setSlug: (slug: string) => void
 }
 
 const useStyles = makeStyles((theme: Theme) => 
@@ -53,7 +54,9 @@ export default function CountryList(props: IProps) {
         open
         >
             <List>
-        {countriesData.map(data => <CountryItem setCountry={props.setCountry} data={data}/>)}
+        {countriesData.map(data => 
+            <CountryItem setCountry={props.setCountry} setSlug={props.setSlug} data={data}/>
+        )}
         </List>
         </Drawer>
     )
