@@ -37,22 +37,22 @@ export default function Chart(props: IProps) {
     const lines = [
         {
             dataKey: "Confirmed",
-            color: "blue",
+            color: props.colors.Confirmed[900],
             display: props.displayConfirmed
         },
         {
             dataKey: "Deaths",
-            color: "blue",
+            color: props.colors.Deaths[900],
             display: props.displayDeaths
         },
         {
             dataKey: "Recovered",
-            color: "blue",
+            color: props.colors.Recovered[900],
             display: props.displayRecovered
         },
         {
             dataKey: "Active",
-            color: "blue",
+            color: props.colors.Active[900],
             display: props.displayActive
         }
     ]

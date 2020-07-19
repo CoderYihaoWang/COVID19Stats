@@ -37,12 +37,12 @@ export default function OptionsBar(props: IProps) {
     const MakeColoredSwitch = (name: "Confirmed" | "Recovered" | "Active" | "Deaths") => 
     withStyles({
         switchBase: {
-            color: props.colors[name][300],
+            color: props.colors[name][200],
             '&$checked': {
-            color: props.colors[name][500],
+            color: props.colors[name][900],
             },
             '&$checked + $track': {
-            backgroundColor: props.colors[name][500],
+            backgroundColor: props.colors[name][900],
             },
         },
         checked: {},
@@ -64,7 +64,6 @@ export default function OptionsBar(props: IProps) {
                     onChange={(e) => props.setDisplayConfirmed(e.target.checked)}
                 />}
                 label='Confirmed'
-                color="secondary"
             />
             </Grid>
             <Grid item>
