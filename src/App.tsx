@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { Grid, makeStyles, Theme, createStyles, Container } from '@material-ui/core';
+import { makeStyles, Theme, createStyles} from '@material-ui/core';
 import CountryList from './Components/CountryList';
 import ChartPanel from './Components/ChartPanel';
 import './App.css';
-import { findByLabelText } from '@testing-library/react';
-import classes from '*.module.css';
 import { red, green, orange, grey } from '@material-ui/core/colors';
 import { IColors } from './Common/Interfaces';
 
@@ -12,6 +10,10 @@ const useStyle = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       display: 'flex'
+    },
+    drawer: {
+      width: '20vw',
+      overflowX: 'hidden'
     }
   })
 )
@@ -29,7 +31,7 @@ function App() {
 
   return (
     <div className={classes.root}>
-      <CountryList setCountry={setCountry} setSlug={setSlug} colors={colors}/>
+      <CountryList setCountry={setCountry} setSlug={setSlug} colors={colors} className={classes.drawer}/>
       <ChartPanel country={country} slug={slug} colors={colors}/>
     </div>
   );

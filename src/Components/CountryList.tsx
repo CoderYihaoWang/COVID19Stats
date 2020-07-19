@@ -6,7 +6,8 @@ import { ICountryData, IColors } from '../Common/Interfaces';
 interface IProps {
     setCountry: (country: string) => void,
     setSlug: (slug: string) => void
-    colors: IColors
+    colors: IColors,
+    className: string
 }
 
 const useStyles = makeStyles((theme: Theme) => 
@@ -50,7 +51,7 @@ export default function CountryList(props: IProps) {
 
     return (
         <Drawer
-        className={classes.drawer}
+        className={props.className}
         variant="permanent"
         anchor="left"
         open
