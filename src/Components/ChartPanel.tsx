@@ -3,7 +3,6 @@ import DateBar from './DateBar';
 import Chart from './Chart';
 import OptionsBar from './OptionsBar';
 import { createStyles, makeStyles, Theme, Typography, Grid, Container, Color } from '@material-ui/core';
-import { purple } from '@material-ui/core/colors';
 import { IColors } from '../Common/Interfaces';
 
 interface IProps {
@@ -28,8 +27,8 @@ export default function ChartPanel(props: IProps) {
         new Date(new Date().getTime() - 24 * 60 * 60 * 1000)
     );
     const [displayConfirmed, setDisplayConfirmed] = useState<boolean>(true);
-    const [displayDeaths, setDisplayDeaths] = useState<boolean>(false);
-    const [displayRecovered, setDisplayRecovered] = useState<boolean>(false);
+    const [displayDeaths, setDisplayDeaths] = useState<boolean>(true);
+    const [displayRecovered, setDisplayRecovered] = useState<boolean>(true);
     const [displayActive, setDisplayActive] = useState<boolean>(true);
 
     const classes = useStyles();
