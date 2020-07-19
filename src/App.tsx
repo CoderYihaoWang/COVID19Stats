@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { makeStyles, Theme, createStyles} from '@material-ui/core';
 import CountryList from './Components/CountryList';
 import ChartPanel from './Components/ChartPanel';
-import './App.css';
 import { red, green, orange, grey } from '@material-ui/core/colors';
 import { IColors } from './Common/Interfaces';
+import './App.css';
 
 const useStyle = makeStyles((theme: Theme) => 
   createStyles({
