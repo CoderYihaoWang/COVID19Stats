@@ -12,7 +12,8 @@ interface IProps {
     displayDeaths: boolean,
     displayRecovered: boolean,
     displayActive: boolean,
-    colors: IColors
+    colors: IColors,
+    className: string
 }
 
 interface IData {
@@ -57,7 +58,7 @@ export default function Chart(props: IProps) {
         }
     ]
     return (   
-        <Grid container justify="center">
+        <Grid container justify="center" className={props.className}>
             <Grid item>
             <LineChart width={600} height={300} data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
                 <Tooltip />

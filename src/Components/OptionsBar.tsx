@@ -2,7 +2,6 @@ import React from 'react';
 import { FormControlLabel, FormGroup, Switch, Grid, withStyles } from '@material-ui/core';
 import { purple } from '@material-ui/core/colors';
 import { IColors } from '../Common/Interfaces';
-import { datePickerDefaultProps } from '@material-ui/pickers/constants/prop-types';
 
 interface IProps {
     displayConfirmed: boolean,

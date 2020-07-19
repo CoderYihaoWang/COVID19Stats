@@ -14,7 +14,12 @@ interface IProps {
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         title: {
-          textAlign: 'center'  
+            textAlign: 'center',
+            marginTop: 30
+        },
+        chart: {
+            marginTop: 20,
+            marginBottom: 20
         }
     })
 );
@@ -53,6 +58,7 @@ export default function ChartPanel(props: IProps) {
                 displayRecovered={displayRecovered}
                 displayActive={displayActive}
                 colors={props.colors}
+                className={classes.chart}
             />
             <OptionsBar 
                 displayConfirmed={displayConfirmed}
