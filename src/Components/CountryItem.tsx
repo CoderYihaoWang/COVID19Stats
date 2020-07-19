@@ -9,7 +9,8 @@ import {
     List, 
     makeStyles, 
     createStyles, 
-    Theme 
+    Theme, 
+    Divider
 } from '@material-ui/core';
 import { ICountryData, IColors } from '../Common/Interfaces';
 
@@ -20,23 +21,45 @@ interface IProps {
     colors: IColors
 }
 
-const useStyles = makeStyles((theme: Theme) => 
-    createStyles({
-        item: {
-            display: "flex",
-            justifyContent: "space-between"
-        },
-        dataHead: {
-            display: "block",
-        },
-        data: {
-            display: "block",
-            textAlign: "right"
-        }
-    })
-)
-
 export default function CountryItem(props: IProps) {
+    const useStyles = makeStyles((theme: Theme) => 
+        createStyles({
+            item: {
+                display: "flex",
+                justifyContent: "space-between"
+            },
+            dataHead: {
+                display: "block",
+                color: '#555555'
+            },
+            data: {
+                display: "block",
+                textAlign: "right"
+            },
+            totalConfirmedData: {
+                color: props.colors.Confirmed[900]
+            },
+            newConfirmedData: {
+                color: props.colors.Confirmed[500]
+            },
+            totalRecoveredData: {
+                color: props.colors.Recovered[900]
+            },
+            newRecoveredData: {
+                color: props.colors.Recovered[500]
+            },
+            totalDeathsData: {
+                color: props.colors.Deaths[900]
+            },
+            newDeathsData: {
+                color: props.colors.Deaths[500]
+            },
+            button: {
+                marginTop: 20
+            }
+        })
+    );
+
     const classes = useStyles();
     
     return (
@@ -46,11 +69,12 @@ export default function CountryItem(props: IProps) {
             </AccordionSummary>
             <AccordionDetails>
                 <List>
+                    <Divider />
                     <ListItem className={classes.item}>
                         <Typography variant="body2" className={classes.dataHead}>
                             Totol confirmed:
                         </Typography>
-                        <Typography variant="body2" className={classes.data}>
+                        <Typography variant="body2" className={`${classes.data} ${classes.totalConfirmedData}`}>
                             {props.data.TotalConfirmed}
                         </Typography>
                     </ListItem>
@@ -58,15 +82,16 @@ export default function CountryItem(props: IProps) {
                         <Typography variant="body2" className={classes.dataHead}>
                             New confirmed:
                         </Typography>
-                        <Typography variant="body2" className={classes.data}>
+                        <Typography variant="body2" className={`${classes.data} ${classes.newConfirmedData}`}>
                             {props.data.NewConfirmed}
                         </Typography>
                     </ListItem>
+                    <Divider />
                     <ListItem className={classes.item}>
                         <Typography variant="body2" className={classes.dataHead}>
                             Totol recovered:
                         </Typography>
-                        <Typography variant="body2" className={classes.data}>
+                        <Typography variant="body2" className={`${classes.data} ${classes.totalRecoveredData}`}>
                             {props.data.TotalRecovered}
                         </Typography>
                     </ListItem>
@@ -74,15 +99,16 @@ export default function CountryItem(props: IProps) {
                         <Typography variant="body2" className={classes.dataHead}>
                             New recovered:
                         </Typography>
-                        <Typography variant="body2" className={classes.data}>
+                        <Typography variant="body2" className={`${classes.data} ${classes.newRecoveredData}`}>
                             {props.data.NewRecovered}
                         </Typography>
                     </ListItem>
+                    <Divider />
                     <ListItem className={classes.item}>
                         <Typography variant="body2" className={classes.dataHead}>
                             Totol deaths:
                         </Typography>
-                        <Typography variant="body2" className={classes.data}>
+                        <Typography variant="body2" className={`${classes.data} ${classes.totalDeathsData}`}>
                             {props.data.TotalDeaths}
                         </Typography>
                     </ListItem>
@@ -90,16 +116,17 @@ export default function CountryItem(props: IProps) {
                         <Typography variant="body2" className={classes.dataHead}>
                             New deaths:
                         </Typography>
-                        <Typography variant="body2" className={classes.data}>
+                        <Typography variant="body2" className={`${classes.data} ${classes.newDeathsData}`}>
                             {props.data.NewDeaths}
                         </Typography>
                     </ListItem>
+                    <Divider />
                     <ListItem className={classes.item}>
-                       <Button onClick={() => {
+                       <Button className={classes.button} onClick={() => {
                             props.setSlug(props.data.Slug);
                             props.setCountry(props.data.Country);
                         }} variant="outlined">
-                            show on graph
+                            show trend
                         </Button> 
                     </ListItem>
                 </List>
