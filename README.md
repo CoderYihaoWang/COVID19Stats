@@ -2,6 +2,8 @@
 
 This project is to be summitted for both 'Web App' and 'DevOps' parts of the [NZSMA Program](https://nzmsa.netlify.app/) / [Phase 1](https://github.com/NZMSA/2020-Phase-1).
 
+This project has been deployed on [Azure](https://covid19stats.azurewebsites.net/).
+
 ## Web App part
 This is a simple web app that shows the COVID-19 trends for various countries.
 
@@ -17,4 +19,6 @@ The components and styles are from [Material UI](https://material-ui.com/)
 
 ## DevOps part
 
+- Build pipeline: just the basic stuff following the tutorial. This includes installing node.js, invoke `npm run start`, and zip it to an artifact.
 
+- Release pipeline: just the basic stuff following the tutorial, deploying the app to Azure Web App.
