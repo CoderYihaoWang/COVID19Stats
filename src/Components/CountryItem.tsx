@@ -1,5 +1,16 @@
-import React, { useEffect } from 'react';
-import { ListItem, ListItemText, Tooltip, Accordion, AccordionSummary, AccordionDetails, Button, Typography, List, makeStyles, createStyles, Theme } from '@material-ui/core';
+import React from 'react';
+import { 
+    ListItem, 
+    Accordion, 
+    AccordionSummary, 
+    AccordionDetails, 
+    Button, 
+    Typography, 
+    List, 
+    makeStyles, 
+    createStyles, 
+    Theme 
+} from '@material-ui/core';
 import { ICountryData, IColors } from '../Common/Interfaces';
 
 interface IProps {
