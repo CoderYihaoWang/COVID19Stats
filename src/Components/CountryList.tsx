@@ -22,8 +22,6 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function CountryList(props: IProps) {
     const [countriesData, setCountriesData] = useState<ICountryData[]>([]);
 
-    const classes = useStyles();
-
     useEffect(() => {
         fetch('https://api.covid19api.com/summary')
             .then(response => response.json())
@@ -62,7 +60,7 @@ export default function CountryList(props: IProps) {
                     <CountryItem setCountry={props.setCountry} setSlug={props.setSlug} data={data} colors={props.colors}/>
                 )
             }
-        </List>
+            </List>
         </Drawer>
     )
 }

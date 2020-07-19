@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import DateBar from './DateBar';
 import Chart from './Chart';
 import OptionsBar from './OptionsBar';
-import { createStyles, makeStyles, Theme, Typography, Grid, Container, Color } from '@material-ui/core';
+import { createStyles, makeStyles, Theme, Typography, Container} from '@material-ui/core';
 import { IColors } from '../Common/Interfaces';
 
 interface IProps {

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Line, LineChart, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
-import { setDate } from 'date-fns';
+import { Line, LineChart, XAxis, YAxis, Tooltip } from 'recharts';
 import { Grid } from '@material-ui/core';
 import { IColors } from '../Common/Interfaces';
 
