@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
     ListItem, 
     Accordion, 
@@ -10,7 +10,10 @@ import {
     makeStyles, 
     createStyles, 
     Theme, 
-    Divider
+    Divider,
+    Dialog,
+    DialogContent,
+    DialogContentText
 } from '@material-ui/core';
 import { ICountryData, IColors } from '../Common/Interfaces';
 
@@ -62,6 +65,17 @@ export default function CountryItem(props: IProps) {
 
     const classes = useStyles();
     
+    const [open, setOpen] = useState<boolean>(false);
+
+    const handleClick = () => {
+        if (props.data.Slug === "united-states") {
+            setOpen(true);
+            return;
+        }
+        props.setSlug(props.data.Slug);
+        props.setCountry(props.data.Country);
+    }
+
     return (
         <Accordion>
             <AccordionSummary>
@@ -122,12 +136,27 @@ export default function CountryItem(props: IProps) {
                     </ListItem>
                     <Divider />
                     <ListItem className={classes.item}>
-                       <Button className={classes.button} color="default" onClick={() => {
-                            props.setSlug(props.data.Slug);
-                            props.setCountry(props.data.Country);
-                        }} variant="contained" disableElevation>
+                       <Button 
+                            className={classes.button} 
+                            color="default" 
+                            onClick={handleClick} 
+                            variant="contained" 
+                            disableElevation
+                        >
                             show trend
                         </Button> 
+                        {
+                            props.data.Slug === "united-states"
+                            ? <Dialog open={open} onClose={() => setOpen(false)}>
+                                <DialogContent>
+                                <DialogContentText>
+                                    Sorry, due to the limitations of the current API, the trend for the United States cannot be retrieved properly. 
+                                    <br /><br />Please try other countries =)
+                                </DialogContentText>
+                                </DialogContent>
+                              </Dialog>
+                            : <div />
+                        }
                     </ListItem>
                 </List>
             </AccordionDetails>
