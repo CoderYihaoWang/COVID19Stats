@@ -122,10 +122,10 @@ export default function CountryItem(props: IProps) {
                     </ListItem>
                     <Divider />
                     <ListItem className={classes.item}>
-                       <Button className={classes.button} onClick={() => {
+                       <Button className={classes.button} color="default" onClick={() => {
                             props.setSlug(props.data.Slug);
                             props.setCountry(props.data.Country);
-                        }} variant="outlined">
+                        }} variant="contained" disableElevation>
                             show trend
                         </Button> 
                     </ListItem>
